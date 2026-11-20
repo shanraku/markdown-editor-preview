@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10111b">
+  <meta name="description" content="A free, privacy-friendly Markdown editor with instant preview. Write, preview, and download Markdown in your browser.">
+  <title>Markdown Studio — Free Markdown Editor</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Markdown Studio home"><span class="brand-mark">M</span><span>Markdown<span class="brand-soft">Studio</span></span></a>
+    <nav class="top-actions" aria-label="Editor actions">
+      <button class="button button-quiet" id="themeToggle" type="button" aria-pressed="false">☼ <span>Light mode</span></button>
+      <button class="button button-quiet" id="copyButton" type="button">Copy Markdown</button>
+      <button class="button button-primary" id="downloadButton" type="button">Download .md</button>
+    </nav>
+  </header>
+  <main class="shell">
+    <section class="intro">
+      <div><p class="eyebrow">FREE · PRIVATE · OPEN SOURCE</p><h1>Your words.<br><span>Beautifully formatted.</span></h1><p class="intro-copy">Write Markdown on the left. See a clean preview on the right. Everything runs locally in your browser.</p></div>
+      <div class="privacy-pill"><span></span> Your writing stays on this device</div>
+    </section>
+    <section class="workspace" aria-label="Markdown editor and preview">
+      <div class="pane editor-pane">
+        <div class="pane-head"><div><span class="pane-dot"></span><strong>EDITOR</strong></div><span id="wordCount">0 words</span></div>
+        <label class="sr-only" for="markdownInput">Markdown source</label>
+        <textarea id="markdownInput" spellcheck="false" autocapitalize="off" autocomplete="off" aria-describedby="editorHelp"># Welcome to Markdown Studio
+
+A simple, **free** place to write in Markdown.
+
+## What you can do
+
+- Write headings, lists, and paragraphs
+- Add **bold** and *italic* text
+- Create [links](https://www.markdownguide.org/)
+- Write code:
+
+```js
+const message = "Hello, Markdown!";
+console.log(message);
+```
+
+> Your content is processed locally. No account or API key needed.
+
+---
+
+Start editing this sample or clear it and write your own.</textarea>
+        <p class="pane-foot" id="editorHelp">Markdown source · Autosaved only in this open page</p>
+      </div>
+      <div class="pane preview-pane">
+        <div class="pane-head"><div><span class="preview-icon">◈</span><strong>LIVE PREVIEW</strong></div><span class="live-label"><i></i> Live</span></div>
+        <article id="preview" class="preview-content" aria-live="polite"></article>
+        <p class="pane-foot">Preview updates as you type</p>
+      </div>
+    </section>
+    <section class="feature-strip">
+      <div><span>01</span><strong>Instant preview</strong><p>See your formatting as you write.</p></div>
+      <div><span>02</span><strong>Privacy first</strong><p>No uploads. No accounts. No tracking code.</p></div>
+      <div><span>03</span><strong>Take it with you</strong><p>Copy your text or download a .md file.</p></div>
+    </section>
+  </main>
+  <footer><span>Made for everyone · MIT licensed</span><a href="https://github.com/shanraku/markdown-editor-preview" target="_blank" rel="noopener noreferrer">View source on GitHub ↗</a></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
